@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial,  sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color:burlywood;
+            }
+            .container{
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px black;
+                display: inline-block;
+            }
+            img{
+                width: 800px;
+                height: auto;
+                margin-top: 10px;
+            }
+ 
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Your Marks</h2>
+        <input type="number" id="marks" placeholder="Enter marks" min="0" max="100">
+        <button onclick="CheckGrade()">CheckGrade</button>
+        <h3 id="result"></h3>
+        <img id="gradeImage" src="" style="display: none;">
+    </div>
+
+    <script>
+        //Switch case is used to jump from one case to another, It is like used to switch according to the given input
+        function CheckGrade(){
+            let marks=document.getElementById('marks').value;
+            let result=document.getElementById('result');
+            let gradeImage=document.getElementById('gradeImage');
+
+            marks=parseInt(marks);
+            let grade,imagePath;
+
+            switch(true){
+                case(marks>= 90 && marks <= 100):
+                grade="You got O grade! Congratulations!";
+                imagePath="100.jpg";
+                break;
+
+                case(marks>= 80 ):
+                grade="You got A grade! Congratulations!";
+                imagePath="80.jpg";
+                break;
+
+                case(marks>= 70):
+                grade="You got B grade! Congratulations!";
+                imagePath="70.jpg";
+                break; 
+
+
+                case(marks>= 60 ):
+                grade="You got C grade! Congratulations!";
+                imagePath="60.jpg";
+                break; 
+ 
+                case(marks>= 50 ):
+                grade="You got D grade! Congratulations!";
+                imagePath="50.jpg";
+                break; 
+
+                case(marks>= 35):
+                grade="You got E grade! Congratulations!";
+                imagePath="35.jpg";
+                break; 
+
+                default:
+                    grade="You Failed! Better Luck next time!";
+                    imagePath="fail.jpg"
+
+            }
+            result.innerHTML=grade;
+            gradeImage.src=imagePath;
+            gradeImage.style.display="block";
+        }
+    </script>
+</body>
+</html>
